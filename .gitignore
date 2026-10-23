@@ -1,0 +1,53 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+
+# Tests
+.pytest_cache/
+.coverage
+
+# IDE / editores
+.vscode/
+.idea/
+*.swp
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Modelos IA (grandes)
+modelos/*.h5
+modelos/*.tflite
+modelos/*.onnx
+modelos/*.pt
+
+# Base de datos
+datos/asistente.db
+datos/asistente.db-journal
+
+# Salidas generadas
+salidas/*.pdf
+salidas/*.png
+salidas/*.jpg
+salidas/*.jpeg
+salidas/*.jsonl
+salidas/chat_*
+salidas/tab_*
+salidas/reporte_*
+salidas/admin_*
+!salidas/.gitkeep
+
+# Secretos
+.env
+.env.local
+
+# Zips
+*.zip

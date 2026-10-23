@@ -1,0 +1,282 @@
+{
+  "version": "1.2",
+  "dominio": "caficultura nicaraguense",
+  "departamentos_soportados": [
+    "Boaco", "Carazo", "Chinandega", "Chontales", "Esteli", "Granada",
+    "Jinotega", "Leon", "Madriz", "Managua", "Masaya", "Matagalpa",
+    "Nueva Segovia", "Rio San Juan", "Rivas", "RACCN", "RACCS"
+  ],
+  "reglas": [
+    {
+      "id": "R001",
+      "prioridad": 3,
+      "descripcion": "Roya con clima favorable",
+      "si": {
+        "sintoma_observado": ["manchas_naranjas", "polvo_amarillo", "pustulas"],
+        "humedad_relativa": ">75",
+        "temperatura": "18-24",
+        "lluvia_previa": true
+      },
+      "entonces": {
+        "diagnostico": "Hemileia vastatrix (Roya)",
+        "recomendacion": "Aplicar fungicida cuprico (oxicloruro de cobre 2-3 kg/mz) mas triadimefon (0.5 L/mz). Eliminar hojas infectadas. Regular sombra al 40-50%."
+      }
+    },
+    {
+      "id": "R002",
+      "prioridad": 3,
+      "descripcion": "Antracnosis por exceso de humedad",
+      "si": {
+        "sintoma_observado": ["manchas_negras", "lesiones_hundidas", "muerte_ramas"],
+        "humedad_relativa": ">80"
+      },
+      "entonces": {
+        "diagnostico": "Colletotrichum spp. (Antracnosis)",
+        "recomendacion": "Podar ramas afectadas. Aplicar benomil (1 kg/mz). Mejorar drenaje y aireacion."
+      }
+    },
+    {
+      "id": "R003",
+      "prioridad": 2,
+      "descripcion": "Ojo de gallo en epoca lluviosa",
+      "si": {
+        "sintoma_observado": ["manchas_circulares", "borde_cafe", "centro_gris"],
+        "lluvia_previa": true
+      },
+      "entonces": {
+        "diagnostico": "Mycena citricolor (Ojo de gallo)",
+        "recomendacion": "Reducir sombra. Aplicar caldo bordeles (2%). Recolectar y quemar hojas caidas."
+      }
+    },
+    {
+      "id": "R004",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de nitrogeno en crecimiento",
+      "si": {
+        "sintoma_observado": ["hojas_amarillas", "clorosis_uniforme"],
+        "fase_fenologica": ["crecimiento", "vegetativo"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Nitrogeno",
+        "recomendacion": "Aplicar urea 46% en dosis de 2 qq/mz fraccionada en dos aplicaciones."
+      }
+    },
+    {
+      "id": "R005",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de potasio en llenado de grano",
+      "si": {
+        "sintoma_observado": ["borde_hojas_amarillo", "necrosis_marginal"],
+        "fase_fenologica": ["llenado_grano"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Potasio",
+        "recomendacion": "Aplicar KCl (cloruro de potasio) 1.5 qq/mz durante el llenado de grano."
+      }
+    },
+    {
+      "id": "R_NUT_001",
+      "prioridad": 3,
+      "descripcion": "CP-01: Deficit severo de nitrogeno en llenado de grano",
+      "si": {
+        "fase_fenologica": "llenado_grano",
+        "nitrogeno_foliar": "<2.2",
+        "humedad_suelo": ">60"
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia severa de nitrogeno en llenado de grano",
+        "recomendacion": "Prescribir Ferticafe Cosecha 2 qq/mz e invocar el optimizador genetico para ajustar dosis."
+      }
+    },
+    {
+      "id": "R_FIT_002",
+      "prioridad": 3,
+      "descripcion": "CP-02: Brote activo de roya del cafeto",
+      "si": {
+        "presencia_pustula_roya": true,
+        "incidencia_visual": ">12"
+      },
+      "entonces": {
+        "diagnostico": "Brote activo de roya del cafeto",
+        "recomendacion": "Activar Red Bayesiana y aplicar fungicida cuprico inmediato (2-3 kg/mz). Eliminar hojas infectadas."
+      }
+    },
+    {
+      "id": "R_SEG_005",
+      "prioridad": 10,
+      "descripcion": "CP-03: Bloqueo por sobre-fertilizacion y anoxia radical",
+      "si": {
+        "dosis_nitrogeno": ">160",
+        "volumen_riego": ">350"
+      },
+      "entonces": {
+        "diagnostico": "BLOQUEO: riesgo de toxicidad y anoxia radical",
+        "recomendacion": "Reducir nitrogeno por debajo de 160 kg/mz y riego por debajo de 350 m3/mz. Riesgo de asfixia radical y perdida de inversion."
+      }
+    },
+    {
+      "id": "R_OR_001",
+      "prioridad": 1,
+      "descripcion": "CP-04: Enfermedad foliar activa (operador OR)",
+      "si": {
+        "operador_logico": "OR",
+        "condiciones": [
+          { "variable": "sintoma_observado", "valor": "manchas_naranjas" },
+          { "variable": "sintoma_observado", "valor": "manchas_negras" },
+          { "variable": "sintoma_observado", "valor": "pustulas" }
+        ]
+      },
+      "entonces": {
+        "diagnostico": "Enfermedad foliar activa (roya o antracnosis)",
+        "recomendacion": "Aplicar fungicida de amplio espectro y monitorear focos."
+      }
+    },
+    {
+      "id": "R_FIT_003",
+      "prioridad": 2,
+      "descripcion": "Mal de hilachas en epoca lluviosa",
+      "si": {
+        "sintoma_observado": ["telarana_blanca", "hilos_blancos", "muerte_descendente"],
+        "lluvia_previa": true
+      },
+      "entonces": {
+        "diagnostico": "Pellicularia koleroga (Mal de hilachas)",
+        "recomendacion": "Podar y quemar ramas afectadas. Aplicar caldo bordeles. Mejorar aireacion del cafetal reduciendo sombra."
+      }
+    },
+    {
+      "id": "R_FIT_004",
+      "prioridad": 2,
+      "descripcion": "Mancha de hierro en viveros y plantaciones jovenes",
+      "si": {
+        "sintoma_observado": ["mancha_cafe_rojiza", "halo_amarillo", "centro_blanco"]
+      },
+      "entonces": {
+        "diagnostico": "Cercospora coffeicola (Mancha de hierro)",
+        "recomendacion": "Aplicar fungicida a base de benomil o mancozeb. Fertilizar con N y K para fortalecer la planta. Evitar estrés hidrico."
+      }
+    },
+    {
+      "id": "R_FIT_005",
+      "prioridad": 2,
+      "descripcion": "Mancha mantecosa en zonas altas y humedas",
+      "si": {
+        "sintoma_observado": ["mancha_grasosa", "mancha_cafe_oscura", "hoja_pegada"],
+        "humedad_relativa": ">85"
+      },
+      "entonces": {
+        "diagnostico": "Phoma costarricensis (Mancha mantecosa)",
+        "recomendacion": "Aplicar fungicida cuprico. Reducir densidad de siembra. Podar para mejorar ventilacion."
+      }
+    },
+    {
+      "id": "R_FIT_006",
+      "prioridad": 3,
+      "descripcion": "Pudricion radicular por Rosellinia",
+      "si": {
+        "sintoma_observado": ["raiz_negra", "necrosis_radicular", "muerte_subita"]
+      },
+      "entonces": {
+        "diagnostico": "Rosellinia bunodes (Pudricion radicular)",
+        "recomendacion": "Arrancar y quemar plantas afectadas. Aplicar Trichoderma al suelo. Mejorar drenaje. Dejar barbecho biologico 2 anos."
+      }
+    },
+    {
+      "id": "R_PLA_001",
+      "prioridad": 3,
+      "descripcion": "Broca del cafe",
+      "si": {
+        "sintoma_observado": ["perforaciones_fruto", "granos_perforados", "broca_visible"]
+      },
+      "entonces": {
+        "diagnostico": "Hypothenemus hampei (Broca del cafe)",
+        "recomendacion": "Recoleccion selectiva de granos brocados. Trampas con alcohol-metanol (3:1). Aplicar Beauveria bassiana. No dejar frutos en el suelo."
+      }
+    },
+    {
+      "id": "R_PLA_002",
+      "prioridad": 2,
+      "descripcion": "Minador de la hoja",
+      "si": {
+        "sintoma_observado": ["galerias_hoja", "minas_hoja", "hoja_blanquecina"]
+      },
+      "entonces": {
+        "diagnostico": "Leucoptera coffeella (Minador de la hoja)",
+        "recomendacion": "Aplicar insecticida sistemico si el dano supera 20% de hojas. Favorecer enemigos naturales (avispas parasitoides). Fertilizar para compensar defoliacion."
+      }
+    },
+    {
+      "id": "R_PLA_003",
+      "prioridad": 3,
+      "descripcion": "Nematodos fitoparasitos",
+      "si": {
+        "sintoma_observado": ["raices_nudosas", "amarillamiento_general", "enanismo"]
+      },
+      "entonces": {
+        "diagnostico": "Meloidogyne / Pratylenchus (Nematodos)",
+        "recomendacion": "Analisis de suelo obligatorio. Aplicar nematicida biologico (Paecilomyces lilacinus). Rotar con leguminosas. Evitar mover suelo contaminado entre lotes."
+      }
+    },
+    {
+      "id": "R_NUT_002",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de fosforo",
+      "si": {
+        "sintoma_observado": ["hojas_purpuras", "tallos_purpura"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Fosforo",
+        "recomendacion": "Aplicar 18-46-0 (2 qq/mz) al inicio de la epoca lluviosa. Verificar pH del suelo (optimo 5.5-6.5)."
+      }
+    },
+    {
+      "id": "R_NUT_003",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de potasio en produccion",
+      "si": {
+        "sintoma_observado": ["margen_hoja_quemado", "hojas_viejas_amarillas"],
+        "fase_fenologica": ["llenado_grano", "madurez"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Potasio en produccion",
+        "recomendacion": "Aplicar KCl 1.5-2 qq/mz fraccionado. Mantener relacion K/Mg adecuada."
+      }
+    },
+    {
+      "id": "R_NUT_004",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de magnesio",
+      "si": {
+        "sintoma_observado": ["clorosis_intervenal_amarilla", "hojas_viejas_verde_centro"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Magnesio",
+        "recomendacion": "Aplicar sulfato de magnesio (MgSO4) foliar 2% o al suelo 30 kg/mz. Verificar exceso de K que bloquea absorcion de Mg."
+      }
+    },
+    {
+      "id": "R_NUT_005",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de zinc",
+      "si": {
+        "sintoma_observado": ["hojas_pequenas", "brotes_arrugados"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Zinc",
+        "recomendacion": "Aplicar sulfato de zinc foliar (0.5%). Repetir cada 21 dias hasta revertir sintomas. Verificar pH alcalino que bloquea Zn."
+      }
+    },
+    {
+      "id": "R_NUT_006",
+      "prioridad": 2,
+      "descripcion": "Deficiencia de boro",
+      "si": {
+        "sintoma_observado": ["hojas_deformadas_nuevas", "entrenudos_cortos"]
+      },
+      "entonces": {
+        "diagnostico": "Deficiencia de Boro",
+        "recomendacion": "Aplicar acido borico 0.3% foliar. Cuidar dosis (toxicidad >1%). Aplicar en epoca de crecimiento activo."
+      }
+    }
+  ]
+}

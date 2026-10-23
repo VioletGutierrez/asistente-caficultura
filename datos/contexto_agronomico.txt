@@ -1,0 +1,46 @@
+=== ENFERMEDADES DEL CAFE EN NICARAGUA ===
+
+1. ROYA (Hemileia vastatrix)
+   Sintomas: manchas amarillo-naranja en enves de hojas, polvo amarillo (uredosporas).
+   Condiciones: HR mayor a 75%, temperatura 18-24 grados, presencia de lluvia.
+   Control: fungicidas cupricos, triadimefon, ciproconazol. Eliminar hojas infectadas.
+   Umbral economico: 5-10% de incidencia.
+
+2. ANTRACNOSIS (Colletotrichum spp.)
+   Sintomas: lesiones negras hundidas en ramas y frutos, muerte descendente.
+   Condiciones: HR mayor a 80%, heridas por poda o granizo.
+   Control: poda sanitaria, benomil, mejorar drenaje.
+
+3. OJO DE GALLO (Mycena citricolor)
+   Sintomas: manchas circulares cafe con centro gris, caida de hojas.
+   Condiciones: alta humedad, sombra excesiva, lluvia frecuente.
+   Control: reducir sombra, caldo bordeles, recoger hojas caidas.
+
+=== NUTRICION ===
+- Nitrogeno (N): 1.5-3 qq/mz de urea 46%. Aplicar fraccionado.
+- Fosforo (P): 0.5-1.5 qq/mz de triple superfosfato.
+- Potasio (K): 1-2 qq/mz de KCl. Critico en llenado de grano.
+- Foliar: boro, zinc, magnesio cada 45 dias en epoca lluviosa.
+
+=== FENOLOGIA ===
+- Floracion: noviembre-diciembre.
+- Llenado de grano: enero-marzo.
+- Maduracion: abril-mayo.
+- Cosecha: octubre-febrero (varia por zona).
+
+=== RIEGO ===
+- Requerimiento: 1200-1800 mm/anio.
+- Estres hidrico controlado: aplicar 30-40 dias antes de floracion.
+- Evitar encharcamiento: drenaje en zonas bajas.
+
+=== MERCADO (Nicaragua) ===
+- Tipo de cambio referencia: 36.6 NIO/USD.
+- Precio cafe oro: 180-250 USD/qq.
+- Mano de obra corte: 200-300 NIO/dia.
+- Cosecha por manzana: 15-25 qq oro en fincas tecnificadas.
+
+=== ZONAS CAFETALERAS ===
+- Matagalpa: 800-1500 msnm, climas frescos.
+- Jinotega: 1000-1700 msnm, alta nubosidad.
+- Nueva Segovia: 900-1600 msnm, frontera con Honduras.
+- Madriz, Esteli: zonas de transicion.
